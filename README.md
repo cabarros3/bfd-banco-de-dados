@@ -51,6 +51,36 @@ Foi utilizado o brmodelo para fazer a modelagem conceitual do mini mundo.
 
 ![Diagrama ER do banco de dados](./src/images/img2.png)
 
+### 🌾 Relacionamento Ternário — Planta, Canteiro e Voluntário
+
+No modelo lógico do VerdeViva, a tabela cultivo representa um relacionamento ternário, ou seja, uma associação que envolve três entidades ao mesmo tempo: planta, canteiro e voluntário.
+
+Esse tipo de relacionamento é utilizado quando uma única entidade associativa precisa conectar três outras entidades de forma significativa, sem que seja possível dividi-la em dois relacionamentos binários sem perda de informação.
+
+No contexto da horta comunitária:
+
+- Um voluntário realiza o cultivo de uma determinada planta em um canteiro específico.
+
+- Assim, a tabela cultivo funciona como um elo que registra:
+
+- Qual planta está sendo cultivada (planta_id);
+
+- Em qual canteiro o cultivo está ocorrendo (canteiro_id);
+
+- Qual voluntário está responsável por esse cultivo (voluntario_id);
+
+- Além de atributos próprios, como a data de início do cultivo (data_cultivo).
+
+Essa estrutura permite representar de forma precisa a relação entre os três elementos centrais do sistema, garantindo:
+
+- Rastreabilidade das atividades realizadas por cada voluntário;
+
+- Histórico completo dos cultivos de cada planta e canteiro;
+
+- Integridade referencial, já que a tabela cultivo depende das chaves primárias de planta, canteiro e voluntário.
+
+Em resumo, o relacionamento ternário do cultivo expressa o coração do sistema VerdeViva, conectando pessoas, plantas e espaços — refletindo o funcionamento real de uma horta comunitária colaborativa.
+
 ![Diagrama ER do banco de dados](./src/images//img3.png)
 
 ---
