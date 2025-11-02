@@ -61,7 +61,7 @@ No contexto da horta comunitária:
 
 - Um voluntário realiza o cultivo de uma determinada planta em um canteiro específico.
 
-- Assim, a tabela cultivo funciona como um elo que registra:
+Assim, a tabela cultivo funciona como um elo que registra:
 
 - Qual planta está sendo cultivada (planta_id);
 
@@ -111,9 +111,7 @@ CREATE TABLE telefone_usuario (
         ON UPDATE CASCADE
 );
 
--- ===============================
--- Tabela canteiro
--- ===============================
+-- cria tabela canteiro
 CREATE TABLE canteiro (
     canteiro_id INT PRIMARY KEY AUTO_INCREMENT,
     nome_canteiro VARCHAR(100) NOT NULL,
@@ -211,16 +209,44 @@ CREATE TABLE telefone_instituicao (
 );
 ```
 
-## 🔗 Relacionamentos
+## Inserts
 
-- Uma planta → pode participar de vários cultivos.
+```sql
 
-- Um canteiro → pode abrigar vários cultivos.
+-- voluntário
+INSERT INTO voluntario (nome_voluntario, funcao)
+VALUES ('Camilla Barros', 'agricultor');
 
-- Um cultivo → pode gerar várias colheitas.
+-- telefone_voluntario
+INSERT INTO telefone_usuario (numero, voluntario_id)
+VALUES ('11987654321', 1);
 
-- Uma colheita → pode originar várias doações.
+-- canteiro
+INSERT INTO canteiro (nome_canteiro, localizacao_canteiro, tamanho_canteiro)
+VALUES ('Canteiro Central', 'Área principal da horta', 20.5),
 
-- Uma doação → é destinada a uma instituição.
+-- planta
+INSERT INTO planta (nome_planta, tempo_cultivo)
+VALUES ('Alface', '30 dias');
 
-- Um voluntário → pode estar vinculado a diversos cultivos.
+-- cultivo
+INSERT INTO cultivo (data_cultivo, voluntario_id, canteiro_id, planta_id)
+VALUES ('2025-11-01', 1, 1, 1);
+
+-- colheita
+INSERT INTO colheita (data_colheita, quantidade_colhida, cultivo_id)
+VALUES ('2025-11-30', 5.0, 1);
+
+-- instituicao
+INSERT INTO instituicao (nome_instituicao, rua, numero, complemento, bairro, cidade, estado, cep)
+VALUES ('Asilo Feliz', 'Rua das Flores', '123', '', 'Centro', 'São Paulo', 'SP', '01001000');
+
+-- telefone_instituicao
+INSERT INTO telefone_instituicao (numero, instituicao_id)
+VALUES ('11999998888', 1),
+
+-- doacao
+INSERT INTO doacao (quantidade_doada, colheita_id, instituicao_id)
+VALUES (5.0, 1, 1);
+
+```
