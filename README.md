@@ -82,7 +82,7 @@ Essa estrutura permite representar de forma precisa a relação entre os três e
 Em resumo, o relacionamento ternário do cultivo expressa o coração do sistema VerdeViva, conectando pessoas, plantas e espaços — refletindo o funcionamento real de uma horta comunitária colaborativa.
 
 ![Diagrama ER do banco de dados](./src/images//img3.png)
-
+[Acesse o diagrama aqui](https://dbdesigner.page.link/715ongNyacDuKL1z5)
 ---
 
 ## 🗃️ Estrutura das Tabelas (modelo SQL simplificado)
